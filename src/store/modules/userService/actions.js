@@ -1,10 +1,12 @@
 import Vue from 'vue';
-import Eos from 'eosjs';
-import ScatterJS from '@scatterjs/core';
-import ScatterEOS from '@scatterjs/eosjs';
-import router from '../../../router';
+// import Eos from 'eosjs';
+// import ScatterJS from '@scatterjs/core';
+// import ScatterEOS from '@scatterjs/eosjs';
+import { Scatter } from 'ual-scatter';
+import { UALJs } from 'ual-plainjs-renderer';
+// import router from '../../../router';
 import ActionType from '../../constants';
-import config from '@/config';
+// import config from '@/config';
 
 const proposalsTable = 'proposals';
 const depositsTable = 'deposits';
@@ -14,67 +16,86 @@ const settingsTable = 'settings';
 const stateTable = 'state';
 const votesTable = 'votes';
 
-ScatterJS.plugins(new ScatterEOS());
+// ScatterJS.plugins(new ScatterEOS());
+
+const myCallback = (arrayOfUsers) => {
+  console.log('myCallback', arrayOfUsers);
+};
 
 export default {
-  [ActionType.SCATTER_INIT]: async ({ commit }) => {
-    try {
-      commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, true);
-      const connected = await ScatterJS.connect(config.appName, { network: config.eos });
-      if (!connected) {
-        throw new Error('Scatter not connected');
-      }
-      const { scatter } = ScatterJS;
-      if (scatter.isExtension) {
-        throw new Error('Web scatter not supported');
-      }
-
-      commit(ActionType.SET_EOS, scatter.eos(config.eos, Eos));
-      if (scatter.identity) {
-        commit(ActionType.SET_EOS_ACCOUNT, scatter.account('eos'));
-      }
-
-      window.scatter = null;
-      window.ScatterJS = null;
-      return true;
-    } catch (e) {
-      console.error('ActionType.SCATTER_INIT', e);
-      commit(ActionType.SET_IS_SCATTER_NOT_CONNECTED, true);
-      return false;
-    } finally {
-      commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, false);
-    }
+  [ActionType.SCATTER_INIT]: async () => {
+    const myChain = {
+      chainId: 'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473',
+      rpcEndpoints: [{
+        protocol: 'https',
+        host: 'junglessl.atticlab.net',
+        port: 443,
+      }],
+    };
+    const scatter = new Scatter([myChain], { appName: 'WPS EOS' });
+    const myAppRoot = {
+      containerElement: document.getElementById('app'),
+    };
+    console.log(myAppRoot.containerElement);
+    const ual = new UALJs(myCallback, [myChain], 'WPS EOS', [scatter], myAppRoot);
+    ual.init();
+    // try {
+    //   commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, true);
+    //   const connected = await ScatterJS.connect(config.appName, { network: config.eos });
+    //   if (!connected) {
+    //     throw new Error('Scatter not connected');
+    //   }
+    //   const { scatter } = ScatterJS;
+    //   if (scatter.isExtension) {
+    //     throw new Error('Web scatter not supported');
+    //   }
+    //
+    //   commit(ActionType.SET_EOS, scatter.eos(config.eos, Eos));
+    //   if (scatter.identity) {
+    //     commit(ActionType.SET_EOS_ACCOUNT, scatter.account('eos'));
+    //   }
+    //
+    //   window.scatter = null;
+    //   window.ScatterJS = null;
+    //   return true;
+    // } catch (e) {
+    //   console.error('ActionType.SCATTER_INIT', e);
+    //   commit(ActionType.SET_IS_SCATTER_NOT_CONNECTED, true);
+    //   return false;
+    // } finally {
+    //   commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, false);
+    // }
   },
-  [ActionType.SCATTER_LOGIN]: async ({ commit, dispatch }) => {
-    try {
-      if (!ScatterJS.scatter || !ScatterJS.scatter.login) {
-        try {
-          await dispatch(ActionType.SCATTER_INIT);
-        } catch (e) {
-          throw e;
-        }
-      }
-      // SET_IS_SCATTER_LOGIN_LOADING if the SCATTER_INIT called
-      // commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, true);
-
-      if (!await ScatterJS.scatter.login()) return new Error('no identity');
-      commit(ActionType.SET_EOS_ACCOUNT, ScatterJS.scatter.account('eos'));
-      return true;
-    } catch (e) {
-      console.error('ActionType.SCATTER_LOGIN', e);
-      return false;
-    }
+  [ActionType.SCATTER_LOGIN]: async () => {
+    // try {
+    //   if (!ScatterJS.scatter || !ScatterJS.scatter.login) {
+    //     try {
+    //       await dispatch(ActionType.SCATTER_INIT);
+    //     } catch (e) {
+    //       throw e;
+    //     }
+    //   }
+    //   // SET_IS_SCATTER_LOGIN_LOADING if the SCATTER_INIT called
+    //   // commit(ActionType.SET_IS_SCATTER_LOGIN_LOADING, true);
+    //
+    //   if (!await ScatterJS.scatter.login()) return new Error('no identity');
+    //   commit(ActionType.SET_EOS_ACCOUNT, ScatterJS.scatter.account('eos'));
+    //   return true;
+    // } catch (e) {
+    //   console.error('ActionType.SCATTER_LOGIN', e);
+    //   return false;
+    // }
   },
-  [ActionType.SCATTER_LOGOUT]: ({ commit, dispatch }, data) => {
-    if (ScatterJS.scatter && ScatterJS.scatter.logout) {
-      ScatterJS.scatter.logout();
-    }
-    commit(ActionType.SET_EOS_ACCOUNT, null);
-    commit(ActionType.SET_IS_BP, false);
-    dispatch(ActionType.DEFINE_ROUTE_TO, null);
-    if (data !== 'ProposalsActive') {
-      router.push({ name: 'ProposalsActive' });
-    }
+  [ActionType.SCATTER_LOGOUT]: () => {
+    // if (ScatterJS.scatter && ScatterJS.scatter.logout) {
+    //   ScatterJS.scatter.logout();
+    // }
+    // commit(ActionType.SET_EOS_ACCOUNT, null);
+    // commit(ActionType.SET_IS_BP, false);
+    // dispatch(ActionType.DEFINE_ROUTE_TO, null);
+    // if (data !== 'ProposalsActive') {
+    //   router.push({ name: 'ProposalsActive' });
+    // }
   },
   [ActionType.SET_IS_BP]: ({ commit }, data) => commit(ActionType.SET_IS_BP, data),
   [ActionType.DEFINE_ROUTE_TO]: ({ commit }, data) => {
