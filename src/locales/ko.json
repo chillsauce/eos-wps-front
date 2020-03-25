@@ -1,4 +1,4 @@
-﻿{
+{
   "common": {
     "proposals": "프로포절",
     "signInWithScatter": "스케터로 로그인",
@@ -146,9 +146,9 @@
     "votingPeriodsAndFunding": "투표분기 및 펀딩",
     "votingPeriodsAndFundingP1": "월별 예산 상한금인 {maxMonthlyBudget} 가 {votingPeriod}동안 획득가능해집니다. 투표기간, 예산 상한과 같은 세팅들은 WPS 스마트컨트랙에 저장되어 있으며, 이는 21개의 BP 중 15개 BP들의 동의 하에 변경될 수 있습니다.",
     "votingPeriod": "잔여투표 기간 {days}-일",
-    "votingPeriodsAndFundingP2": "REX의 런칭 이전에 {eosio}는 ‘eosio.names’ 과 ‘eosio.ramfee’ 계정들로부터 펀딩을 받았습니다. REX가 런칭되기 이전까지 eosio.wps가 이오스 프리미엄 계정명 경매와 RAM 판매 수익들로부터 모은 펀드는 350만 이오스입니다. 또한 자발적으로 펀딩을 한 토큰홀더들도 있었습니다. WPS 시스템은 특정 개인들의 특정 요청들에 의해 운영되는 구조이기 때문에 세금이나 인플레이션이 적용되지 않습니다. 펀드를 eosio.wps 계정에서 움직이기 위해서는 15 BP이상의 MSIG 승인이 필요합니다.",
+    "votingPeriodsAndFundingP2": "REX의 런칭 이전에 {eosio}는 ‘eosio.names’ 과 ‘eosio.ramfee’ 계정들로부터 펀딩을 받았습니다. REX가 런칭되기 이전까지 eosio.wps가 이오스 프리미엄 계정명 경매와 RAM 판매 수익들로부터 모은 펀드는 350만 이오스입니다. 또한 자발적으로 펀딩을 한 토큰홀더들도 있었습니다. 이 펀드는 특정 개인들의 요청에 의한 네트워크 서비스에 의해 운영되므로, 어떠한 세금이나 인플레이션도 적용되지 않습니다. 펀드를 eosio.wps 계정에서 움직이기 위해서는 15 BP이상의 MSIG 승인이 필요합니다.",
     "votingPeriodsAndFundingP3": "현재 `eosio.names` 과 `eosio.ramfee` 로부터 수집되는 펀드는 계속해서REX 홀더들에게 돌아갈 것 이며 `eosio.wps’ 계정으로 전송되지 않을 것 입니다. REX로 유입되는 펀드는 이 프로포절의 영향을 받지 않을 것 입니다.",
-    "votingPeriodsAndFundingP4": "저희는 EOS WPS 시스템의 활성화를 위해 `eosio.wps’ 으로 한 번 또는 두 번에 걸쳐 50,000 EOS를 전송하는 프로포절을 제안하려고 계획 중 입니다. 저희는 매 분기 한 달전마다 25,000 EOS 규모의 WPS 펀딩 프로포절을 제안할 것 이며, 이를 통해 Top21 BP들은 펀딩MSIG를 승인하지 않음으로써 언제든지 WPS 시스템을 중단할 수 있는 유연성을 갖게 됩니다.",
+    "votingPeriodsAndFundingP4": "저희는 EOS WPS 시스템의 활성화를 위해 `eosio.wps’ 으로 한 번 또는 두 번에 걸쳐 50,000 EOS를 전송하는 프로포절을 제안하려고 계획 중 입니다. 저희는 매 분기 한 달전마다 {maxMonthlyBudget} 규모의 WPS 펀딩 프로포절을 제안할 것 이며, 이를 통해 Top21 BP들은 펀딩MSIG를 승인하지 않음으로써 언제든지 WPS 시스템을 중단할 수 있는 유연성을 갖게 됩니다.",
     "passingProposals": "프로포절 통과 중",
     "passingProposalsP": "프로포절을 통과시키기 위해서는 투표기간의 마지막에 다음의 {proposalThreshold} 을 만족시켜야합니다.",
     "proposalThresholdSmall": "프로포절 스레드홀",
@@ -193,7 +193,7 @@
       },
       "5": {
         "question": "{depositFee}등록비의 환불이 가능하나요?",
-        "answer": "아니요, 프로포절 등록 이후의 환불은 불가능합니다. 하지만 프로포절 제출 과정에서는 완전 환불이 가능합니다. ."
+        "answer": "아니요, 프로포절 등록 이후의 환불은 불가능합니다. 하지만 프로포절 제출 과정에서는 완전 환불이 가능합니다."
       },
       "6": {
         "question": "제 프로포절이 투표기간 동안  조건을 통과하지 못 하면 다음 분기에 계속해서 투표를 받을 수 있나요?",
@@ -209,7 +209,7 @@
       },
       "9": {
         "question": "여러번에 걸쳐서 펀드 요청을 할 수 있나요?",
-        "answer": "네, 최대6번의 30일 분기에 걸쳐서 펀드를 요청할 수 있습니다. 하지만 각 분기마다 계속 이어질 투표의 영향을 받게 될 것 입니다. 다분기 프로포절은 다분기 투표를 통해 진행됩니다. 해당펀드는 매 분기마다 프로포절 스레드홀이 충족될 시에만 제공될 것 입니다. 만약 한 분기에 스레드홀이 충족되지 않을 경우에는, 프로포절은 취소되고 더 이상 투표되지 않을 것 입니다."
+        "answer": "네, 최대6번의 {days}일 분기에 걸쳐서 펀드를 요청할 수 있습니다. 하지만 각 분기마다 계속 이어질 투표의 영향을 받게 될 것 입니다. 다분기 프로포절은 다분기 투표를 통해 진행됩니다. 해당펀드는 매 분기마다 프로포절 스레드홀이 충족될 시에만 제공될 것 입니다. 만약 한 분기에 스레드홀이 충족되지 않을 경우에는, 프로포절은 취소되고 더 이상 투표되지 않을 것 입니다."
       },
       "10": {
         "question": "다분기 프로포절을 제출한다면 매 분기마다 등록비를 내야하나요?",
@@ -229,6 +229,131 @@
       }
     }
   },
+  "userGuide": {
+     "guide": "사용자 가이드",
+     "submittingProposal": "프로포절 제출",
+     "eosWpsUserGuide": "이오스 WPS 사용자 가이드",
+     "clickButton": "“{buttonName}” 클릭.",
+     "proposalBudget": "프로포절 예산",
+     "startDate": "시작일",
+     "endDate": "마감일",
+     "selectDate": "팝업창에서 날짜를 선택하세요.",
+     "signInSection": {
+       "title": "이오스 WPS 포탈에 가입하세요.",
+       "li1": "Go to {url}",
+       "li2": {
+         "title": "이오스 계정으로 로그인하기",
+         "a": "Click “Sign in”",
+         "b": "선호하는 지갑을 선택하고 프로포절을 제출할 계정으로 로그인하세요."
+       },
+       "li3": "포탈 상단에 있는 “Create proposal” 버튼을 클릭하세요."
+     },
+     "setupProposalSection": {
+       "title": "프로포절 설정",
+       "containMin": "최소 {num} 자",
+       "containMax": "최대 {num} 자",
+       "subSection1": {
+         "title": "필수 기입란을 채워주세요:",
+         "li1": {
+           "title": "{proposalName}은 당신의 프로포절의 표기명이 될 것 입니다. 포탈에는 나타나지 않을 것 이지만, WPS 스마트컨트랙에는 기록될 것 입니다." 
+           "subLi1": "새로운 표기명을 작성해주세요.",
+           "subLi4": "영문 소문자, 숫자 1~5 조합 "
+         },
+         "li2": {
+           "title": "{proposalTitle} 은 포털의 활성화 프로포절 리스트와 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다."
+         },
+         "li3": {
+           "title": "{proposalSummary}은 프로포절을 간단하고 짧게 요약한 글이며, 포털의 활성화 프로포절 리스트와 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다."
+         },
+         "li4": {
+           "title": "{proposalCategory}는 프로포절의 종류에 따른 분류를 도와줍니다. 카테고리는 포털의 활성화 프로포절 리스트와 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다",
+           "a": "드롭다운 매뉴를 이용하여 카테고리를 선택하세요.:"
+         },
+         "li5": {
+           "title": "{proposalBudget}은 프로포절이 통과되었을 때 당신의 계정으로 전송 될 이오스의 양입니다. 일시불 혹은 6개월에 걸친 분할 지불을 요청할 수 있습니다. 당신의 예산을 구체적인 항목들로 나누어 표기하거나 단순히 총 예산을 표기할 수 있습니다.(하단에 있는 샘플을 확인해보세요.) 총 예산액은 포털의 활성화 프로포절 리스트와 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다.",
+           "a": "페이지 하단에 있는 "Add budget items to your proposal”  버튼 밑에 있는 “Add new item” 를 클릭",
+           "b": "{title} 입력.",
+           "c": "{cost} 입력 (단위:이오스)",
+           "d": {
+             "title": "{amount} 입력 ",
+             "subLi1": "{subtotal} 은 {cost}(예산액)과 {amount}(예산 분할 횟수)의 곱을 나타냅니다."
+           },
+           "e": "드롭다운 매뉴를 이용하여 분할 단위 입력. ",
+           "f": "클릭“Save.”",
+           "g": "추가할 예산 목록이 있다면 a부터 f 까지의 과정을 반복.",
+           "h": {
+             "title": "드롭다운 매뉴를 통해 {durationOfPayments}(지불기간) 클릭.",
+             "subLi1": "지불은  최대 6개월까지 분할될 수 있습니다.",
+             "subLi2": "총 예산액은 지불기간에 의해 나누어지어 매 달 지급되는 예산액을 계산합니다."
+           },
+           "sampleBudget": "예산 샘플:"
+         }
+       },
+       "subSection2": {
+         "title": "다음의 표기란은 선택사항입니다:",
+         "li1": {
+           "title": "{heroImage}는 당신의 프로포절에 대한 사람들의 관심을 끌거나 내용을 이해하도록 도와주는 이미지입니다. 이 이미지는 포털의 활성화 프로포절 리스트와 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다.",
+           "a": "이미지의 URL 을 입력.",
+           "subLi1": "사용하는 이미지 공유 서비스가 지원하는 이미지를 업로드하세요."
+         },
+         "li2": {
+           "title": "{videoLink}는 당신의 프로포절을 더욱 쉽게 설명하기 위한 비디오 링크입니다. 이는 포털의 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다.",
+           "a": "프로포절에 업로드하고자 하는 비디오의 URL을 입력.",
+           "subLi1": "비디오와 이미지의 공유 경로는 사용자의 임의입니다. "
+         }
+       },
+       "subSection3": {
+         "title": "저장 및 다음 단계로 이동:",
+         "li1": {
+           "title": "다음 단계로 넘어가기 전에 당신의 프로세스를 저장하고 싶으시다면, 페이지 하단의 “Save Draft” 버튼을 누르세요.",
+           "a": "스케터 창이 뜨면 “Allow” 를 클릭하세요."
+         },
+         "li2": {
+           "title": "페이지 하단에 있는 “Continue” 를 클릭하여 다음 단계로 넘어가세요.",
+           "subLi1": "“Save Draft” 버튼을 클릭하지 않으면 프로세스는 저장되지 않을 것 입니다."
+         }
+       }
+     },
+     "descriptionSection": {
+       "title": "프로포절의 상세내용 제시",
+       "li1": "프로포절의  {description}(상세내용)을 텍스트 형태로 기입하세요. 포멧을 이용하여 당신의 글이 더욱  돋보이도록 하세요. 이 내용은 포털의 프로포절 상세내용 페이지를 통해 투표권자들에게 노출될 것 입니다.",
+       "li2": "페이지 하단에 있는 “Save Draft” 버튼을 클릭하여 당신의 프로세스를 블록체인에 저장하세요.",
+       "li3": "페이지 하단에 있는 “Continue” 버튼을 클릭하여 다음 단계로 넘어가세요."
+     },
+     "timelineSection": {
+       "title": "프로젝트 타임라인 세팅",
+       "li1": {
+         "title": "Add a {timeline} for a project milestone to inform voters of when you plan to deliver specific milestones of your proposal. It will be displayed to them in the details page of your proposal.",
+         "b": "Enter a {title} for your milestone.",
+         "c": "Select a {startDate} for your milestone.",
+         "d": "Select an {endDate} for your milestone.",
+         "f": "Repeat steps a-e if you have additional milestones to add. "
+       }
+     },
+     "publishProposalSection": {
+       "title": "Publish proposal",
+       "preface": "Now that your draft is saved, you should be on the Drafts page of the EOS WPS portal. You can access this page at any time by clicking the Drafts button at the top of the portal. Here you can see a list of all of the draft proposals currently awaiting to be published, including the draft you just saved. Click on your proposal to go to the details page. From here you can review your proposal and have options to pay the proposal fee, edit the proposal, or delete the proposal. Before you can publish your proposal, you must pay the proposal fee.",
+       "subSection1": {
+         "title": "Pay proposal fee:",
+         "li2": "Approve the transfer of {depositFee} to the eosio.wps account by clicking the “Allow” button in the Scatter pop-up window.",
+         "p1": "Once the fee has been successfully paid, you’ll see new options to activate the proposal or refund your proposal fee. Once you activate the proposal you are no longer able to edit the proposal or refund your proposal fee. Make sure you’re happy with the proposal before moving on to the final step."
+       },
+       "subSection2": {
+         "title": "Activate proposal:",
+         "li2": "Read the disclaimer in the pop-up window. Your proposal can’t be edited once it’s activated.",
+         "li3": {
+           "title": "Decide if you want to activate the proposal immediately or for the next voting period. The pop-up window will display how many days remain in the voting period. Your proposal needs to pass in the voting period it’s published - so consider activating for the next voting period if the current period is nearing the end. Voting periods are {days} days.",
+           "a": {
+             "title": "Click “Activate for current” if you want to activate your proposal for the current period.",
+             "subLi1": "If there are 5 days or less remaining in the voting period, you’ll be prevented from activating the proposal for the current period."
+           },
+           "b": "Click “Activate for next” if you want to activate your proposal for the next period."
+         },
+         "li4": "Click “Allow” in the Scatter pop-up to activate your proposal.",
+         "p1": "If you clicked the “Activate for current” option, your proposal should now be displayed in the Active proposals section of the EOS WPS Portal and is available for voting by EOS Block Producers. If you clicked “Activate for next,” it will begin displaying there as soon as the next voting period begins."
+       }
+     }
+   },
   "notFoundPage": {
     "notFound": "오류",
     "home": "홈"
